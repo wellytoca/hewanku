@@ -8,9 +8,27 @@ import java.util.List;
 import simple.example.hewanpedia.model.Anjing;
 import simple.example.hewanpedia.model.Hewan;
 import simple.example.hewanpedia.model.Kucing;
+import simple.example.hewanpedia.model.Buaya;
 
 public class DataProvider {
     private static List<Hewan> hewans = new ArrayList<>();
+
+    private static List<Buaya> initDataBuaya(Context ctx) {
+        List<Buaya> buayas = new ArrayList<>();
+        buayas.add(new Buaya("aligator amerika", "amerika",
+                "Habitat asal aligator amerika berasal dari amerika. Aligator amerika memiliki dua golongan yakni , aduan, dan liar", R.drawable.buaya_aligatorAmerika));
+        buayas.add(new Buaya("aligator tiongkok", "tiongkok",
+                "merupakan spesies aligator tiongkok berasal dari Indonesia dari Famili Cobitidae yang distribusinya terbatas hanya di tiongkok.", R.drawable.buaya_aligatorTiongkok));
+        buayas.add(new Buaya("caiman", "Jepang",
+                "adalah sejenis buaya yang mempunyai ornamen yang sangat indah dan jinak", R.drawable.buaya_Caiman));
+        buayas.add(new Buaya("broad snouted", "Inggris",
+                "merupakan jenis buaya yang hidup di dalam sungai yang memiliki arus air yang lebih lambat dan tenang.", R.drawable.buaya_caimanSnowted));
+        buayas.add(new Buaya("yacare", "Malaysia",
+                "merupakan salah satu buaya termahal didunia yang dipelihara di dalam akuarium karena warna sisik mereka yang hidup serta benjolan kepala mereka yang berbentuk khas berjuluk \"benjol kelam\".", R.drawable.buaya_yacareCaiman));
+        buayas.add(new Buaya("black caiman", "Peru/Kolombia/Brazil",
+                " adalah buaya air tawar yang memiliki tubuh lebar dan tipis.", R.drawable.buaya_blackCaiman));
+        return buayas;
+    }
 
     private static List<Kucing> initDataKucing(Context ctx) {
         List<Kucing> kucings = new ArrayList<>();
@@ -49,13 +67,14 @@ public class DataProvider {
     private static void initAllHewans(Context ctx) {
         hewans.addAll(initDataKucing(ctx));
         hewans.addAll(initDataAnjing(ctx));
+        hewans.addAll(initDataBuaya(ctx));
     }
 
     public static List<Hewan> getAllHewan(Context ctx) {
         if (hewans.size() == 0) {
             initAllHewans(ctx);
         }
-        return  hewans;
+        return hewans;
     }
 
     public static List<Hewan> getHewansByTipe(Context ctx, String jenis) {

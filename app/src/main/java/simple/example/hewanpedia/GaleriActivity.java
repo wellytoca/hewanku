@@ -9,9 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.List;
-
 import simple.example.hewanpedia.model.Hewan;
 
 public class GaleriActivity extends AppCompatActivity {
@@ -20,7 +18,7 @@ public class GaleriActivity extends AppCompatActivity {
     int indeksTampil = 0;
     String jenisHewan;
     Button btnPertama,btnTerakhir,btnSebelumnya,btnBerikutnya;
-    TextView txJenis,txAsal,txDeskripsi,txJudul;
+    TextView txJenis,txAsal,txDeskripsi,txJudul, txRas;
     ImageView ivFotoHewan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +47,8 @@ public class GaleriActivity extends AppCompatActivity {
         txDeskripsi = findViewById(R.id.txDeskripsi);
         ivFotoHewan = findViewById(R.id.gambarHewan);
 
+        txRas = findViewById(R.id.txRas);
+
         txJudul = findViewById(R.id.txJudul);
         txJudul.setText("Berbagai Macam Ras "+jenisHewan);
     }
@@ -59,6 +59,7 @@ public class GaleriActivity extends AppCompatActivity {
         Log.d("ANJING","Menampilkan anjing "+k.getJenis());
         txJenis.setText(k.getJenis());
         txAsal.setText(k.getAsal());
+        txRas.setText(k.getRas());
         txDeskripsi.setText(k.getDeskripsi());
         ivFotoHewan.setImageDrawable(this.getDrawable(k.getDrawableRes()));
     }
